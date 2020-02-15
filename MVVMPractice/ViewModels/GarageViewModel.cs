@@ -8,21 +8,21 @@ using System.Threading.Tasks;
 
 namespace MVVMPractice.ViewModels
 {
-    class GarageViewModel: ViewModelBase
+    public class GarageViewModel: ViewModelBase
     {
-        public PersonModel SelectedPerson { get; set; }
-        public ObservableCollection<CarModel> CarsForSale { get; set; }
+        public PersonViewModel SelectedPerson { get; set; }
+        public ObservableCollection<CarViewModel> CarsForSale { get; set; }
 
-        public GarageViewModel(PersonModel person)
+        public GarageViewModel(PersonViewModel person)
         {
             SelectedPerson = person;
 
-            CarsForSale = new ObservableCollection<CarModel>()
+            CarsForSale = new ObservableCollection<CarViewModel>()
             {
-                new CarModel(){ Brand = "Toyota", Model = "SomeModel", Condition = 67, Value = 6295},
-                new CarModel(){ Brand = "Honda", Model = "Civic", Condition = 87, Value = 5000},
-                new CarModel(){ Brand = "Ford", Model = "Mustang", Condition = 23, Value = 12995},
-                new CarModel(){ Brand = "Ferrari", Model = "Enzo", Condition = 23, Value = 212995}
+                new CarViewModel(){ Brand = "Toyota", Model = "SomeModel", Condition = 67, Value = 6295},
+                new CarViewModel(){ Brand = "Honda", Model = "Civic", Condition = 87, Value = 5000},
+                new CarViewModel(){ Brand = "Ford", Model = "Mustang", Condition = 23, Value = 12995},
+                new CarViewModel(){ Brand = "Ferrari", Model = "Enzo", Condition = 23, Value = 212995}
             };
         }
     }
