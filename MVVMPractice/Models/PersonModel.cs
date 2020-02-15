@@ -14,7 +14,7 @@ namespace MVVMPractice.Models
     class PersonModel : ViewModelBase
     {
         public string Name { get; set; }
-        public double Money { get; set; }
+        public decimal Money { get; set; }
         public ObservableCollection<CarModel> Cars { get; set; }
 
         public PersonModel()

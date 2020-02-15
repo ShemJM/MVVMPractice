@@ -12,6 +12,6 @@ namespace MVVMPractice.Models
         public string Brand { get; set; }
         public string Model { get; set; }
         public int Condition { get; set; }
-        public double Value { get; set; }
+        public decimal Value { get; set; }
     }
 }

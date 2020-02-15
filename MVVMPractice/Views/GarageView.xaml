@@ -33,7 +33,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding Brand}"/>
                         <TextBlock Text="{Binding Model}" Grid.Column="1"/>
-                        <TextBlock Text="{Binding Conditon}" Grid.Column="2"/>
+                        <TextBlock Text="{Binding Condition}" Grid.Column="2"/>
                         <TextBlock Text="{Binding Value}" Grid.Column="3"/>
                         <Button Content="Sell" Command="{Binding DataContext.SelectedPerson.SellCar, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}" Grid.Column="4"/>
                     </Grid>
@@ -53,7 +53,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding Brand}"/>
                         <TextBlock Text="{Binding Model}" Grid.Column="1"/>
-                        <TextBlock Text="{Binding Conditon}" Grid.Column="2"/>
+                        <TextBlock Text="{Binding Condition}" Grid.Column="2"/>
                         <TextBlock Text="{Binding Value}" Grid.Column="3"/>
                         <Button Content="Buy" Grid.Column="4" Command="{Binding DataContext.SelectedPerson.BuyCar, RelativeSource={RelativeSource AncestorType=UserControl}}" CommandParameter="{Binding}"/>
                     </Grid>
