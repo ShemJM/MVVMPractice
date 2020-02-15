@@ -1,5 +1,5 @@
-﻿using MVVMPractice.Views;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
+using MVVMPractice.Models;
 
 namespace MVVMPractice.ViewModels
 {
@@ -7,18 +7,17 @@ namespace MVVMPractice.ViewModels
     {
         public ViewModelBase SelectedViewModel { get; set; } = new HomeViewModel();
 
-        public UserControl SelectedView { get; set; } = new HomeView();
+        public ViewType SelectedView { get; set; } = ViewType.Home;
 
         public ShellViewModel()
         {
-            SelectedView.DataContext = SelectedViewModel;
+
         }
 
-        public void ChangePage(ViewModelBase viewModel, UserControl view)
+        public void ChangePage(ViewModelBase viewModel, ViewType view)
         {
             SelectedViewModel = viewModel;
             SelectedView = view;
-            SelectedView.DataContext = SelectedViewModel;
         }
     }
 }

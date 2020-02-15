@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MVVMPractice.Models
 {
-    class CarModel: ViewModelBase
+    public class CarViewModel: ViewModelBase
     {
         public string Brand { get; set; }
         public string Model { get; set; }

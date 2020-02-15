@@ -11,15 +11,15 @@ using System.Windows.Input;
 
 namespace MVVMPractice.Models
 {
-    class PersonModel : ViewModelBase
+    public class PersonViewModel : ViewModelBase
     {
         public string Name { get; set; }
         public double Money { get; set; }
-        public ObservableCollection<CarModel> Cars { get; set; }
+        public ObservableCollection<CarViewModel> Cars { get; set; }
 
-        public PersonModel()
+        public PersonViewModel()
         {
-            Cars = new ObservableCollection<CarModel>();
+            Cars = new ObservableCollection<CarViewModel>();
             _gotogarage = new DelegateCommand(OpenGarage, CanOpenGarage);
             _buycar = new DelegateCommand(buycar, CanBuyCar);
             _sellcar = new DelegateCommand(sellcar, CanSellCar);
@@ -34,7 +34,7 @@ namespace MVVMPractice.Models
         }
         private void OpenGarage(object commandparameter)
         {
-            App.context.ChangePage(new GarageViewModel(this), new GarageView());
+            App.context.ChangePage(new GarageViewModel(this), ViewType.Garage);
         }
 
         private readonly DelegateCommand _buycar;
@@ -42,14 +42,14 @@ namespace MVVMPractice.Models
 
         public bool CanBuyCar(object commandparameter)
         {
-            CarModel car = (CarModel)commandparameter;
+            CarViewModel car = (CarViewModel)commandparameter;
 
             return Money > car.Value;
         }
 
         private void buycar(object commandparameter)
         {
-            CarModel car = (CarModel)commandparameter;
+            CarViewModel car = (CarViewModel)commandparameter;
             Money -= car.Value;
             Cars.Add(car);
         }
@@ -59,14 +59,14 @@ namespace MVVMPractice.Models
 
         public bool CanSellCar(object commandparameter)
         {
-            CarModel car = (CarModel)commandparameter;
+            CarViewModel car = (CarViewModel)commandparameter;
 
             return car.Condition > 50;
         }
 
         private void sellcar(object commandparameter)
         {
-            CarModel car = (CarModel)commandparameter;
+            CarViewModel car = (CarViewModel)commandparameter;
             Money += car.Value;
             Cars.Remove(car);
         }
