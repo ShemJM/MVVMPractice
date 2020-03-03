@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MVVMPractice.Models
+namespace MVVMPractice
 {
     public class CarViewModel: ViewModelBase
     {

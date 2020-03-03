@@ -1,6 +1,9 @@
 ﻿using MVVMPractice.ViewModels;
 using MVVMPractice.Views;
+using System;
+using System.Security.Permissions;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace MVVMPractice
 {
@@ -15,10 +18,12 @@ namespace MVVMPractice
         {
             base.OnStartup(e);
 
-            ShellView app = new ShellView();
+            var app = new ShellView();
             context = new ShellViewModel();
             app.DataContext = context;
             app.Show();
+
+            
         }
     }
 }

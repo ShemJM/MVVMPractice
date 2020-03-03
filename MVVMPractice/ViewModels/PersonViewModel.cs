@@ -1,6 +1,4 @@
 ﻿using MVVMPractice.Commands;
-using MVVMPractice.ViewModels;
-using MVVMPractice.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,12 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MVVMPractice.Models
+namespace MVVMPractice
 {
     public class PersonViewModel : ViewModelBase
     {
         public string Name { get; set; }
-        public double Money { get; set; }
+        public decimal Money { get; set; }
         public ObservableCollection<CarViewModel> Cars { get; set; }
 
         public PersonViewModel()
@@ -42,14 +40,14 @@ namespace MVVMPractice.Models
 
         public bool CanBuyCar(object commandparameter)
         {
-            CarViewModel car = (CarViewModel)commandparameter;
+            var car = (CarViewModel)commandparameter;
 
             return Money > car.Value;
         }
 
         private void buycar(object commandparameter)
         {
-            CarViewModel car = (CarViewModel)commandparameter;
+            var car = (CarViewModel)commandparameter;
             Money -= car.Value;
             Cars.Add(car);
         }
@@ -59,16 +57,16 @@ namespace MVVMPractice.Models
 
         public bool CanSellCar(object commandparameter)
         {
-            CarViewModel car = (CarViewModel)commandparameter;
+            var car = (CarViewModel)commandparameter;
 
             return car.Condition > 50;
         }
 
         private void sellcar(object commandparameter)
         {
-            CarViewModel car = (CarViewModel)commandparameter;
+            var car = (CarViewModel)commandparameter;
             Money += car.Value;
-            Cars.Remove(car);
+            _ = Cars.Remove(car);
         }
     }
 }

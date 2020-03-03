@@ -1,4 +1,4 @@
-﻿using MVVMPractice.Models;
+﻿
 using System.Collections.ObjectModel;
 
 namespace MVVMPractice.ViewModels

@@ -21,6 +21,9 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
+                    <ComboBox Grid.Column="3" Background="AliceBlue" BorderBrush="Transparent">
+                        <ComboBoxItem Content="test"/>
+                    </ComboBox>
                     <Button Background="Transparent" BorderBrush="{x:Null}" Command="{Binding GoToGarage}" CommandParameter="{Binding}">
                         <TextBlock Text="{Binding Name}"/>
                     </Button>

@@ -7,8 +7,8 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-namespace MVVMPractice.ViewModels
-{
+namespace MVVMPractice { 
+
     public abstract class ViewModelBase : INotifyPropertyChanged, IDataErrorInfo
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -59,7 +59,7 @@ namespace MVVMPractice.ViewModels
             if (MErrorList.ContainsKey(columnName))
             {
                 if (string.IsNullOrEmpty(error))
-                    MErrorList.Remove(columnName);
+                    _ = MErrorList.Remove(columnName);
                 else
                     MErrorList[columnName] = error;
             }
@@ -71,16 +71,16 @@ namespace MVVMPractice.ViewModels
 
         protected virtual string Validate(string propertyName)
         {
-            string str = ValidateByAnnotations(propertyName);
+            var str = ValidateByAnnotations(propertyName);
             return !string.IsNullOrEmpty(str) ? str : OnValidate(propertyName);
         }
 
         public string ValidateModel(object T)
         {
             var props = T.GetType().GetProperties();
-            string error = string.Empty;
+            var error = string.Empty;
 
-            foreach (PropertyInfo prop in props)
+            foreach (var prop in props)
             {
                 error += Validate(prop.Name);
             }
@@ -95,24 +95,24 @@ namespace MVVMPractice.ViewModels
 
         private string ValidateByAnnotations(string propertyName)
         {
-            ValidationContext validationContext = new ValidationContext(this, null, null)
+            var validationContext = new ValidationContext(this, null, null)
             {
                 MemberName = propertyName
             };
-            Collection<ValidationResult> source = new Collection<ValidationResult>();
+            var source = new Collection<ValidationResult>();
             if (Validator.TryValidateObject(this, validationContext, source, true))
                 return string.Empty;
-            ValidationResult validationResult = source.SingleOrDefault(r => r.MemberNames.Any(m => string.Equals(m, propertyName)));
+            var validationResult = source.SingleOrDefault(r => r.MemberNames.Any(m => string.Equals(m, propertyName)));
             return validationResult != null ? validationResult.ErrorMessage : string.Empty;
         }
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
-            PropertyChangedEventHandler propertyChanged = PropertyChanged;
+            var propertyChanged = PropertyChanged;
             if (propertyChanged == null)
                 return;
             propertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            foreach (DelegateCommand command in Commands)
+            foreach (var command in Commands)
             {
                 command.InvokeCanExecuteChanged();
             }
