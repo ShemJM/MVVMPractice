@@ -65,20 +65,22 @@
     <Compile Include="Commands\DelegateCommand.cs" />
     <Compile Include="Models\ViewType.cs" />
     <Compile Include="ValueConverters\ApplicationViewConverter.cs" />
-    <Compile Include="ViewModels\CarViewModel.cs" />
-    <Compile Include="ViewModels\PersonViewModel.cs" />
-    <Compile Include="ViewModels\GarageViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\ProcessesViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
-    <Compile Include="ViewModels\ViewModelBase.cs" />
-    <Compile Include="Views\GarageView.xaml.cs">
-      <DependentUpon>GarageView.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModels\TaskManagerViewModel.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="Views\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ProcessesView.xaml.cs">
+      <DependentUpon>ProcessesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TaskManagerView.xaml.cs">
+      <DependentUpon>TaskManagerView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -108,15 +110,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\GarageView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ProcessesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ShellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TaskManagerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

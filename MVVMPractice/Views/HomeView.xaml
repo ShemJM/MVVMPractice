@@ -7,29 +7,7 @@
              DataContext="{Binding SelectedViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.Resources>
-        <Style TargetType="TextBlock">
-            <Setter Property="FontSize" Value="16"/>
-        </Style>
-    </UserControl.Resources>
-    <ItemsControl ItemsSource="{Binding People}">
-        <ItemsControl.ItemTemplate>
-            <DataTemplate>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <ComboBox Grid.Column="3" Background="AliceBlue" BorderBrush="Transparent">
-                        <ComboBoxItem Content="test"/>
-                    </ComboBox>
-                    <Button Background="Transparent" BorderBrush="{x:Null}" Command="{Binding GoToGarage}" CommandParameter="{Binding}">
-                        <TextBlock Text="{Binding Name}"/>
-                    </Button>
-                    <TextBlock Grid.Column="1" Text="{Binding Money}"/>
-                </Grid>
-            </DataTemplate>
-        </ItemsControl.ItemTemplate>
-    </ItemsControl>
+    <Canvas>
+        <Button Content="Task Manager" Canvas.Left="120" Canvas.Top="97" Height="76" Width="155" Command="{Binding OpenTaskManager}"/>
+    </Canvas>
 </UserControl>

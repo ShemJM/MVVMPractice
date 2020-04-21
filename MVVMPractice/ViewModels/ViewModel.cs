@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 
 namespace MVVMPractice { 
 
-    public abstract class ViewModelBase : INotifyPropertyChanged, IDataErrorInfo
+    public abstract class ViewModel : INotifyPropertyChanged, IDataErrorInfo
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -1,20 +1,32 @@
-﻿
-using System.Collections.ObjectModel;
+﻿using MVVMPractice.Commands;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MVVMPractice.ViewModels
 {
-    public class HomeViewModel: ViewModelBase
+    public class HomeViewModel: ViewModel
     {
-        public ObservableCollection<PersonViewModel> People { get; set; }
-
         public HomeViewModel()
         {
-            People = new ObservableCollection<PersonViewModel>() {
-                new PersonViewModel() { Name = "Bob Dylan", Money = 50000},
-                new PersonViewModel() { Name = "Bob Marley", Money = 120000},
-                new PersonViewModel() { Name = "Bob Ross", Money = 75000 },
-                new PersonViewModel() { Name = "Bob Barker", Money = 150000 }
-            };
+            _openTaskManager = new DelegateCommand(openTaskManager, CanOpenTaskManager);
+        }
+
+        private DelegateCommand _openTaskManager;
+        
+        public ICommand OpenTaskManager => _openTaskManager;
+
+        private bool CanOpenTaskManager(object commandparameter)
+        {
+            return true;
+        }
+
+        private void openTaskManager(object commandparameter)
+        {
+            App.context.ChangePage(new TaskManagerViewModel(), ViewType.TaskManager);
         }
     }
 }

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MVVMPractice.Views
 {
     /// <summary>
-    /// Interaction logic for GarageView.xaml
+    /// Interaction logic for TaskManagerView.xaml
     /// </summary>
-    public partial class GarageView : UserControl
+    public partial class TaskManagerView : UserControl
     {
-        public GarageView()
+        public TaskManagerView()
         {
             InitializeComponent();
         }

@@ -1,6 +1,7 @@
 ﻿using MVVMPractice.Views;
 using System;
 using System.Globalization;
+using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Markup;
 
@@ -18,8 +19,8 @@ namespace MVVMPractice.ValueConverters
             {
                 case ViewType.Home:
                     return new HomeView();
-                case ViewType.Garage:
-                    return new GarageView();
+                case ViewType.TaskManager:
+                    return new TaskManagerView();
                 default:
                     return null;
             }
@@ -33,6 +34,27 @@ namespace MVVMPractice.ValueConverters
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
             return converter ?? (converter = new ApplicationViewConverter());
+        }
+    }
+
+    public class ApplicationViewModelConverter : MarkupExtension, IValueConverter
+    {
+        private static ApplicationViewModelConverter converter = null;
+
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var vm = (ViewModel)value;
+            return new ProcessesView();
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override object ProvideValue(IServiceProvider serviceProvider)
+        {
+            return converter ?? (converter = new ApplicationViewModelConverter());
         }
     }
 }

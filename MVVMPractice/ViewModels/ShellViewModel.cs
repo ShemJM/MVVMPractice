@@ -1,12 +1,12 @@
 ﻿namespace MVVMPractice.ViewModels
-{
-    public class ShellViewModel : ViewModelBase
+{ 
+    public class ShellViewModel : ViewModel
     {
-        public ViewModelBase SelectedViewModel { get; set; } = new HomeViewModel();
+        public ViewModel SelectedViewModel { get; set; } = new HomeViewModel();
 
         public ViewType SelectedView { get; set; } = ViewType.Home;
 
-        public void ChangePage(ViewModelBase viewModel, ViewType view)
+        public void ChangePage(ViewModel viewModel, ViewType view)
         {
             SelectedViewModel = viewModel;
             SelectedView = view;

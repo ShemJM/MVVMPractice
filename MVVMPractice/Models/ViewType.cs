@@ -9,7 +9,7 @@ namespace MVVMPractice
     public enum ViewType
     {
         Home,
-        Garage,
-
+        TaskManager,
+        Processes
     }
 }
