@@ -11,6 +11,7 @@ namespace MVVMPractice.ViewModels
     {
         public string Title { get; set; } = "Processes";
         public IEnumerable<Process> Processes { get; set; }
+        public Process SelectedProcess { get; set; }
 
         public ProcessesViewModel()
         {

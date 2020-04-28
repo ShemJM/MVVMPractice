@@ -1,4 +1,5 @@
 ﻿using MVVMPractice.Commands;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -116,6 +117,19 @@ namespace MVVMPractice {
             {
                 command.InvokeCanExecuteChanged();
             }
+        }
+
+        public DelegateCommand NewCommand(Action<object> executeAction, Func<object, bool> canExecuteAction)
+        {
+            var c = new DelegateCommand(executeAction, canExecuteAction);
+            Commands.Add(c);
+            return c;
+        }
+
+        public DelegateCommand NewCommand(Action<object> executeAction)
+        {
+            var c = new DelegateCommand(executeAction);
+            return c;
         }
 
         public class PropertyName

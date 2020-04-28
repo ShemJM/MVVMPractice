@@ -12,7 +12,6 @@ namespace MVVMPractice.ViewModels
 
         public TaskManagerViewModel()
         {
-            _gohome = new DelegateCommand(gohome, CanGoHome);
             Pages = new List<ViewModel>()
             {
                 new ProcessesViewModel()
@@ -20,17 +19,10 @@ namespace MVVMPractice.ViewModels
             SelectedPage = Pages[0];
         }
 
-        private DelegateCommand _gohome;
-        public ICommand GoHome => _gohome;
-
-        private bool CanGoHome(object commandparameter)
-        {
-            return true;
-        }
-
-        private void gohome(object commandparameter)
-        {
-            App.context.ChangePage(new HomeViewModel(), ViewType.Home);
-        }
+        public ICommand GoHome => new DelegateCommand((object param) =>
+            {
+                App.context.ChangePage(new HomeViewModel(), ViewType.Home);
+            }
+        );
     }
 }

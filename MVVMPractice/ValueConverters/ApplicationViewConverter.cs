@@ -44,7 +44,10 @@ namespace MVVMPractice.ValueConverters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var vm = (ViewModel)value;
-            return new ProcessesView();
+            var name = vm.GetType().Name;
+            var viewname = name.Replace("Model", "");
+            var view = Type.GetType($"MVVMPractice.Views.{viewname}");
+            return Activator.CreateInstance(view);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

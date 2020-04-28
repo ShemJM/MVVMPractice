@@ -18,9 +18,14 @@ namespace MVVMPractice.Commands
             _canExecuteAction = canExecuteAction;
         }
 
-        public void Execute(object parameter) => _executeAction(parameter);
+        public DelegateCommand(Action<object> executeAction)
+        {
+            _executeAction = executeAction;
+        }
 
-        public bool CanExecute(object parameter) => _canExecuteAction?.Invoke(parameter) ?? true;
+        public void Execute(object parameter = null) => _executeAction(parameter);
+
+        public bool CanExecute(object parameter = null) => _canExecuteAction?.Invoke(parameter) ?? true;
 
         public event EventHandler CanExecuteChanged;
 
