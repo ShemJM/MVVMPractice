@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MVVMPractice.Views
 {
     /// <summary>
-    /// Interaction logic for TaskManagerView.xaml
+    /// Interaction logic for SideMenuPageView.xaml
     /// </summary>
-    public partial class TaskManagerView : UserControl
+    public partial class SideMenuPageView : UserControl
     {
-        public TaskManagerView()
+        public SideMenuPageView()
         {
             InitializeComponent();
         }

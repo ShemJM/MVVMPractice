@@ -19,8 +19,8 @@ namespace MVVMPractice.ValueConverters
             {
                 case ViewType.Home:
                     return new HomeView();
-                case ViewType.TaskManager:
-                    return new TaskManagerView();
+                case ViewType.SideMenuPage:
+                    return new SideMenuPageView();
                 default:
                     return null;
             }

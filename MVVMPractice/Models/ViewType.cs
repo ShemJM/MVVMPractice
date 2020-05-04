@@ -9,7 +9,6 @@ namespace MVVMPractice
     public enum ViewType
     {
         Home,
-        TaskManager,
-        Processes
+        SideMenuPage
     }
 }

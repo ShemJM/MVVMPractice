@@ -1,4 +1,7 @@
-﻿namespace MVVMPractice.ViewModels
+﻿using MVVMPractice.Commands;
+using System.Windows.Input;
+
+namespace MVVMPractice.ViewModels
 { 
     public class ShellViewModel : ViewModel
     {
@@ -11,5 +14,7 @@
             SelectedViewModel = viewModel;
             SelectedView = view;
         }
+
+        public ICommand GoHome => new DelegateCommand((object param) => { ChangePage(new HomeViewModel(), ViewType.Home); });
     }
 }

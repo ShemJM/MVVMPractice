@@ -67,6 +67,7 @@
     <Compile Include="ValueConverters\ApplicationViewConverter.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\ProcessesViewModel.cs" />
+    <Compile Include="ViewModels\ServicesViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\TaskManagerViewModel.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
@@ -76,11 +77,14 @@
     <Compile Include="Views\ProcessesView.xaml.cs">
       <DependentUpon>ProcessesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ServicesView.xaml.cs">
+      <DependentUpon>ServicesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TaskManagerView.xaml.cs">
-      <DependentUpon>TaskManagerView.xaml</DependentUpon>
+    <Compile Include="Views\SideMenuPageView.xaml.cs">
+      <DependentUpon>SideMenuPageView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -118,11 +122,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ServicesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ShellView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TaskManagerView.xaml">
+    <Page Include="Views\SideMenuPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -130,6 +138,9 @@
   <ItemGroup>
     <PackageReference Include="PropertyChanged.Fody">
       <Version>3.2.6</Version>
+    </PackageReference>
+    <PackageReference Include="System.ServiceProcess.ServiceController">
+      <Version>4.7.0</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

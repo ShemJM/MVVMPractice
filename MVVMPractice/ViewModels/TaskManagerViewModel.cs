@@ -14,15 +14,10 @@ namespace MVVMPractice.ViewModels
         {
             Pages = new List<ViewModel>()
             {
-                new ProcessesViewModel()
+                new ProcessesViewModel(),
+                new ServicesViewModel()
             };
             SelectedPage = Pages[0];
         }
-
-        public ICommand GoHome => new DelegateCommand((object param) =>
-            {
-                App.context.ChangePage(new HomeViewModel(), ViewType.Home);
-            }
-        );
     }
 }
