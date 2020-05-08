@@ -46,7 +46,7 @@ namespace MVVMPractice.ValueConverters
             var vm = (ViewModel)value;
             var name = vm.GetType().Name;
             var viewname = name.Replace("Model", "");
-            var view = Type.GetType($"MVVMPractice.Views.{viewname}");
+            var view = Type.GetType($"MVVMPractice.{viewname}");
             return Activator.CreateInstance(view);
         }
 

@@ -1,9 +1,5 @@
-﻿using MVVMPractice.ViewModels;
-using MVVMPractice.Views;
-using System;
-using System.Security.Permissions;
+﻿using MVVMPractice.Views;
 using System.Windows;
-using System.Windows.Threading;
 
 namespace MVVMPractice
 {

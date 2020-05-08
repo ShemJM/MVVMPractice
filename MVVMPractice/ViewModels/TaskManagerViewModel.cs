@@ -1,18 +1,13 @@
-﻿using MVVMPractice.Commands;
-using System.Collections.Generic;
-using System.Windows.Input;
+﻿using System.Collections.Generic;
 
-namespace MVVMPractice.ViewModels
+namespace MVVMPractice
 {
-    class TaskManagerViewModel: ViewModel
+    public class TaskManagerViewModel: SideMenuPageViewModel
     {
-        public string Title { get; set; } = "Task Manager";
-        public List<ViewModel> Pages { get; set; }
-        public ViewModel SelectedPage { get; set; } 
-
         public TaskManagerViewModel()
         {
-            Pages = new List<ViewModel>()
+            Title = "Task Manager";
+            Pages = new List<PageViewModel>()
             {
                 new ProcessesViewModel(),
                 new ServicesViewModel()

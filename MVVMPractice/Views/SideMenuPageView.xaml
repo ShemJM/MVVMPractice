@@ -21,7 +21,7 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Button Content="Home" Command="{Binding DataContext.GoHome, RelativeSource={RelativeSource AncestorType=Window}}" DockPanel.Dock="Bottom" Height="100" Width="100"/>
+            <Button Content="Home" Command="{Binding GoHome}" DockPanel.Dock="Bottom" Height="100" Width="100"/>
         </DockPanel>
         <ContentControl Content="{Binding SelectedPage, Converter={converters:ApplicationViewModelConverter}}"/>
     </DockPanel>

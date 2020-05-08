@@ -1,21 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MVVMPractice.ViewModels
+namespace MVVMPractice
 {
-    public class ProcessesViewModel: ViewModel
+    public class ProcessesViewModel: PageViewModel
     {
-        public string Title { get; set; } = "Processes";
         public IEnumerable<Process> Processes { get; set; }
         public Process SelectedProcess { get; set; }
 
         public ProcessesViewModel()
         {
-            Processes = Process.GetProcesses();    
+            Title = "Processes";
+        }
+
+        public new void Load()
+        {
+            Processes = Process.GetProcesses();
         }
     }
 }

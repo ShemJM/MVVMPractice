@@ -1,15 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.ServiceProcess;
 
-namespace MVVMPractice.ViewModels
+namespace MVVMPractice
 {
-    class ServicesViewModel: ViewModel
+    class ServicesViewModel: PageViewModel
     {
-        public string Title { get; set; } = "Services";
         public IEnumerable<ServiceController> Services { get; set; }
         public ServiceController SelectedService { get; set; }
 
         public ServicesViewModel()
+        {
+            Title = "Services";
+        }
+
+        public new void Load()
         {
             Services = ServiceController.GetServices();
         }

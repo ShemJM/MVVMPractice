@@ -1,10 +1,9 @@
-﻿using MVVMPractice.Commands;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
-namespace MVVMPractice.ViewModels
+namespace MVVMPractice
 {
     public class HomeViewModel: ViewModel
     {
-        public ICommand OpenTaskManager => new DelegateCommand((object param) => App.context.ChangePage(new TaskManagerViewModel(), ViewType.SideMenuPage));
+        public ICommand OpenTaskManager => NewCommand((object param) => App.context.ChangePage(new TaskManagerViewModel(), ViewType.SideMenuPage));
     }
 }
