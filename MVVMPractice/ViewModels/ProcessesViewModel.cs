@@ -13,7 +13,7 @@ namespace MVVMPractice
             Title = "Processes";
         }
 
-        public new void Load()
+        public override void Load()
         {
             Processes = Process.GetProcesses();
         }

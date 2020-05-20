@@ -5,10 +5,11 @@ namespace MVVMPractice
     public class PageViewModel: ViewModel
     {
         public string Title { get; set; }
+        public ViewType ViewType { get; set; }
 
-        public ICommand GoHome => NewCommand((object param) => { App.context.ChangePage(new HomeViewModel(), ViewType.Home); });
+        public ICommand GoHome => NewCommand((object param) => { App.context.ChangePage(new HomeViewModel()); });
 
-        public void Load()
+        public virtual void Load()
         {
 
         }

@@ -6,10 +6,10 @@
 
         public ViewType SelectedView { get; set; } = ViewType.Home;
 
-        public void ChangePage(ViewModel viewModel, ViewType view)
+        public void ChangePage(PageViewModel viewModel)
         {
             SelectedViewModel = viewModel;
-            SelectedView = view;
+            SelectedView = viewModel.ViewType;
         }
     }
 }

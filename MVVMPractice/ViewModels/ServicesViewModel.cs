@@ -13,7 +13,7 @@ namespace MVVMPractice
             Title = "Services";
         }
 
-        public new void Load()
+        public override void Load()
         {
             Services = ServiceController.GetServices();
         }

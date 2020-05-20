@@ -12,7 +12,6 @@
             <TextBlock Height="30" DockPanel.Dock="Top" />
             <Image x:Name="image" DockPanel.Dock="Top" Height="60" Width="60" Source="{Binding Icon}"/>
             <TextBlock Text="{Binding Title}" DockPanel.Dock="Top" Foreground="White" FontSize="18" HorizontalAlignment="Center"/>
-
             <ListView ItemsSource="{Binding Pages}" Width="300" Background="{x:Null}" BorderBrush="Transparent" SelectedItem="{Binding SelectedPage}" DockPanel.Dock="Top">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -20,7 +19,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
             <Button Content="Home" Command="{Binding GoHome}" DockPanel.Dock="Bottom" Height="100" Width="100"/>
         </DockPanel>
         <ContentControl Content="{Binding SelectedPage, Converter={converters:ApplicationViewModelConverter}}"/>

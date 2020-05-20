@@ -13,6 +13,15 @@ namespace MVVMPractice
 
         public List<DelegateCommand> Commands { get; set; } = new List<DelegateCommand>();
 
+        protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string propertyName = "")
+        {
+            if (EqualityComparer<T>.Default.Equals(field, value))
+                return false;
+            field = value;
+            OnPropertyChanged(propertyName);
+            return true;
+        }
+
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var propertyChanged = PropertyChanged;

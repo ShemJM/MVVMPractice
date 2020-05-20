@@ -2,8 +2,14 @@
 
 namespace MVVMPractice
 {
-    public class HomeViewModel: ViewModel
+    public class HomeViewModel: PageViewModel
     {
-        public ICommand OpenTaskManager => NewCommand((object param) => App.context.ChangePage(new TaskManagerViewModel(), ViewType.SideMenuPage));
+        public HomeViewModel()
+        {
+            ViewType = ViewType.Home;
+        }
+
+        public ICommand OpenTaskManager => NewCommand((object param) => App.context.ChangePage(new TaskManagerViewModel()));
+        public ICommand OpenMedia => NewCommand((object param) => App.context.ChangePage(new MediaViewModel()));
     }
 }
